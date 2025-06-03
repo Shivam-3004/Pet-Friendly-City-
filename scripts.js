@@ -107,7 +107,7 @@ const pets = [
     },
     {
         name: "Bella",
-        desc: "Gentlecat who loves books and quiet spaces. 🐾",
+        desc: "Gentle cat who loves books and quiet spaces. 🐾",
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOs6NZfe4DsUL78wLGiNA-8wlKOmVGrMqdWA&s"
     },
     {
