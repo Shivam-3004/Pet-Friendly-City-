@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pet-Friendly City Campaign - Make Cities Paw-some! 🐾</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <div class="logo" tabindex="0" aria-label="Pet Friendly City Logo">🐾 PFC</div>
+        <!-- Hamburger Menu Button -->
+        <button id="menuToggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+            ☰
+        </button>
+        <ul role="menubar" aria-label="Primary navigation" id="navMenu">
+            <li role="menuitem"><a href="#home" class="active">Home</a></li>
+            <li role="menuitem"><a href="#about">About</a></li>
+            <li role="menuitem"><a href="#volunteer">Volunteer</a></li>
+            <li role="menuitem"><a href="#impact">Impact Stories</a></li>
+            <li role="menuitem"><a href="#adoption">Adopt a Pet</a></li>
+            <li role="menuitem"><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main>
+    <header class="hero" id="home" role="banner" aria-label="Making Cities Paw-some Hero Section">
+        <h1>Making Cities Paw-some! 🐾✨</h1>
+        <p>Be the change. Join the movement to make our streets pet-friendly.</p>
+        <div class="btn-group" role="group" aria-label="Call to Action Buttons">
+            <button class="btn" id="joinBtn" aria-label="Join the Movement">Join the Movement 🐶</button>
+            <button class="btn" id="volunteerBtn" aria-label="Volunteer Now">Volunteer Now 🐕</button>
+            <button class="btn" id="learnBtn" aria-label="Learn More">Learn More 🐾</button>
+        </div>
+    </header>
+
+    <section id="about" role="region" aria-labelledby="about-heading" style="max-width:900px; padding: 3rem 1.5rem; margin:auto; text-align:center;">
+        <h2 id="about-heading" style="font-family: 'Fredoka One', cursive; font-size: 2.8rem; color: #ff6f00; margin-bottom: 12px;">About the Campaign 🐕‍🦺</h2>
+        <p style="font-size:1.15rem; font-weight: 500; color:#444;">
+            Our mission is to make cities safe, welcoming, and loving for our furry friends and their humans. Volunteers help spread awareness, organize events, rescue animals, and promote pet adoption all over the city!
+        </p>
+    </section>
+
+    <section id="volunteer" role="region" aria-labelledby="volunteer-heading">
+        <h2 id="volunteer-heading">Volunteer Sign Up 🦴</h2>
+        <p>Fill the form below to join our passionate volunteer community and get rewards for every pet you help! 🎉</p>
+        <form class="volunteer-form" id="volunteerForm" aria-describedby="form-message" novalidate>
+            <label for="nameInput">Name <span aria-hidden="true" style="color:#ff6f00;">*</span></label>
+            <input type="text" id="nameInput" name="name" placeholder="Your Full Name" required aria-required="true" aria-describedby="nameError" autocomplete="name" />
+            <div id="nameError" class="error-msg"></div>
+
+            <label for="cityInput">City <span aria-hidden="true" style="color:#ff6f00;">*</span></label>
+            <input type="text" id="cityInput" name="city" placeholder="City you live in" required aria-required="true" aria-describedby="cityError" autocomplete="address-level2" />
+            <div id="cityError" class="error-msg"></div>
+
+            <label for="roleSelect">Role Preference <span aria-hidden="true" style="color:#ff6f00;">*</span></label>
+            <select id="roleSelect" name="role" required aria-required="true" aria-describedby="roleError">
+                <option value="">-- Select a Role --</option>
+                <option value="dog-walker">Dog Walker 🐕</option>
+                <option value="foster">Foster Parent 🏡</option>
+                <option value="event-helper">Event Helper 🎉</option>
+            </select>
+            <div id="roleError" class="error-msg"></div>
+
+            <button type="submit" class="btn" aria-live="polite">Sign Up</button>
+            <div id="form-message" role="alert" aria-live="assertive"></div>
+        </form>
+    </section>
+
+    <section id="impact" role="region" aria-labelledby="impact-heading">
+        <h2 id="impact-heading">Impact Stories 🐩</h2>
+        <div class="impact-cards" aria-live="polite" aria-atomic="true">
+            <article class="card" tabindex="0" aria-label="Story 1">
+                🐾 &ldquo;We found a loving home for Max!&rdquo;
+            </article>
+            <article class="card" tabindex="0" aria-label="Story 2">
+                🐶 &ldquo;Bella’s journey from the street to a forever home!&rdquo;
+            </article>
+            <article class="card" tabindex="0" aria-label="Story 3">
+                🐱 &ldquo;Whiskers’ rescue story that touched our hearts!&rdquo;
+            </article>
+            <article class="card" tabindex="0" aria-label="Story 4">
+                🐕‍🦺 &ldquo;Rex found his family through our pet foster program!&rdquo;
+            </article>
+        </div>
+    </section>
+
+    <section id="adoption" role="region" aria-labelledby="adoption-heading">
+        <h2 id="adoption-heading">Pet Adoption Carousel 🐕🐈</h2>
+        <p>Click on a pet card to earn 🐾 Paw Points and help spread the love!</p>
+        <div id="points-counter" aria-live="polite" aria-atomic="true">Your Paw Points: 0 🐾</div>
+        <div class="carousel-container" tabindex="0">
+            <div id="carouselTrack" class="carousel-track" role="list" aria-label="Adoptable pets carousel">
+                <!-- Pet cards will be injected here -->
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" role="region" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Contact Us 📞</h2>
+        <p>Got questions or want to get involved? Reach out!</p>
+        <p>Email: <a href="mailto:contact@petfriendlycity.org" class="email-link" aria-label="Email pet friendly city campaign">contact@petfriendlycity.org</a></p>
+    </section>
+</main>
+
+<footer role="contentinfo" aria-label="Footer">
+    <p>© 2025 <span class="name">Pet-Friendly City Campaign</span>. All rights reserved.</p>
+    <p>Created ❤️ by <span class="name">Shivam Paliwal</span></p>
+</footer>
+
+<script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,571 @@
+/* Reset and base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #e0f7fa;
+    color: #222;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+a:hover {
+    color: #ff6347;
+}
+/* Navigation */
+nav {
+    background: #004d40cc;
+    backdrop-filter: saturate(180%) blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 3px 7px rgba(0,0,0,0.1);
+}
+nav .nav-container {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1.2rem;
+}
+nav .logo {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.7rem;
+    color: #ff6f00;
+    user-select: none;
+    cursor: default;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 3px #0005;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+nav ul li {
+    font-weight: 600;
+    font-size: 1.05rem;
+    position: relative;
+    cursor: pointer;
+}
+nav ul li::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: #ff6f00;
+    bottom: -6px;
+    left: 0;
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+nav ul li:hover::after, nav ul li.active::after {
+    width: 100%;
+}
+/* Hero Section */
+header.hero {
+    position: relative;
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(255,111,0,0.85), rgba(255,169,69,0.85)), url('https://images.unsplash.com/photo-1507149833265-60c372daea22?auto=format&fit=crop&w=1349&q=80') no-repeat center center/cover;
+    color: white;
+    padding: 0 1.5rem;
+    overflow: hidden;
+    box-shadow: inset 0 0 100px #ff6f0090;
+}
+header.hero h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 3.8rem;
+    line-height: 1.1;
+    text-shadow: 0 0 15px #ff6f00bb;
+    margin-bottom: 1rem;
+    animation: popIn 1s ease forwards;
+}
+header.hero p {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 8px #0007;
+    max-width: 520px;
+}
+@keyframes popIn {
+    0% {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+.btn-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.btn {
+    background: #ff6f00;
+    border: none;
+    color: white;
+    padding: 18px 36px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 35px;
+    cursor: pointer;
+    box-shadow: 0 6px 12px #ff6f0044;
+    transition: all 0.35s ease;
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.btn:hover {
+    background: #ffa040;
+    box-shadow: 0 8px 18px #ffa040bb;
+    transform: translateY(-4px) scale(1.05);
+}
+.btn i {
+    font-size: 1.4rem;
+    animation: bounce 2s infinite;
+}
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+/* Volunteer Section with blurred background effect */
+section#volunteer {
+    position: relative;
+    padding: 3rem 1.8rem 4rem 1.8rem;
+    clip-path: polygon(0 3%, 100% 0%, 100% 95%, 0 98%);
+    color: white;
+    text-align: center;
+    box-shadow: inset 0 0 100px #000000b9;
+    overflow: hidden;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto 3rem auto;
+    border-radius: 25px;
+}
+section#volunteer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPyFSY4sN8FT2frcjRdN8J2fP9WYfqqmJqUQ&s') no-repeat center center/cover;
+    filter: blur(10px) brightness(0.6);
+    transform: scale(1.1);
+    z-index: -1;
+    transition: filter 0.3s ease;
+    border-radius: 25px;
+}
+section#volunteer:hover::before {
+    filter: blur(7px) brightness(0.7);
+    transform: scale(1.12);
+}
+section#volunteer h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    color: #ffe082;
+    text-shadow: 0 0 10px #000a;
+}
+section#volunteer p {
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: #fff7cc;
+    text-shadow: 0 0 8px #000c;
+}
+form.volunteer-form {
+    position: relative;
+    max-width: 480px;
+    margin: 0 auto;
+    background: #ffffffee;
+    padding: 2rem 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 0 20px #00000044;
+    backdrop-filter: blur(6px);
+    transition: box-shadow 0.3s ease;
+    user-select: none;
+    z-index: 2;
+}
+form.volunteer-form:hover {
+    box-shadow: 0 0 32px #ff6f0044;
+}
+form.volunteer-form input, form.volunteer-form select {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 12px 0;
+    font-size: 1rem;
+    border-radius: 12px;
+    border: 1.8px solid #ddd;
+    outline: none;
+    transition: border-color 0.3s ease;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+form.volunteer-form input:focus, form.volunteer-form select:focus {
+    border-color: #ff6f00;
+}
+form.volunteer-form button[type="submit"] {
+    margin-top: 1.4rem;
+    font-family: 'Fredoka One', cursive;
+    background: #ff6f00;
+    color: white;
+    border: none;
+    padding: 14px;
+    font-size: 1.2rem;
+    width: 100%;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 6px 15px #ff6f0040;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+form.volunteer-form button[type="submit"]:hover {
+    background: #ffa040;
+    box-shadow: 0 8px 20px #ffa04080;
+    transform: scale(1.05);
+}
+#error-msg, .error-msg {
+    color: #c62828;
+    font-size: 0.9rem;
+    height: 18px;
+    margin-top: -10px;
+}
+
+/* Impact Stories Section */
+section#impact {
+    padding: 3rem 1.5rem;
+    background: #fff;
+    text-align: center;
+    max-width: 900px;
+    margin: auto;
+    border-radius: 30px;
+    box-shadow: 0 12px 32px #ff6f0022;
+    margin-bottom: 3rem;
+}
+section#impact h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #ff6f00;
+}
+.impact-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(265px,1fr));
+    gap: 1.3rem;
+    margin-top: 1.5rem;
+}
+.card {
+    background: #ffe0b2;
+    border-radius: 25px;
+    box-shadow: 0 6px 12px #ff6f0022;
+    padding: 1.5rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: default;
+    color: #4e342e;
+    box-sizing: border-box;
+    user-select: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+    box-shadow: 0 12px 24px #ff6f0066;
+    transform: translateY(-10px) scale(1.05);
+    background: #ffcc80;
+}
+
+/* Adoption Carousel Section */
+section#adoption {
+    background: linear-gradient(135deg, #ff6f0040, #ffa04040);
+    padding: 3rem 1.5rem;
+    overflow: hidden;
+    user-select: none;
+    text-align: center;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px #ff6f002c;
+    margin: 0 1rem 3rem 1rem;
+}
+section#adoption h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2.8rem;
+    color: #5d3403;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 4px #fff5ccaa;
+}
+section#adoption p {
+    font-weight: 600;
+    color: #623b00dd;
+    margin-bottom: 26px;
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 3px #fff8ccbb;
+}
+.carousel-container {
+    position: relative;
+    max-width: 950px;
+    margin: 0 auto;
+    overflow: visible;
+}
+.carousel-track {
+    display: flex;
+    gap: 1.4rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-padding-left: 1rem;
+    padding-bottom: 1rem;
+}
+.carousel-track::-webkit-scrollbar {
+    height: 10px;
+}
+.carousel-track::-webkit-scrollbar-thumb {
+    background: #ff6f00cc;
+    border-radius: 12px;
+}
+.pet-card {
+    min-width: 230px;
+    max-width: 230px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 12px 18px #ff6f0040;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.25s ease;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.pet-card:hover {
+    transform: translateY(-6px) scale(1.1);
+    box-shadow: 0 18px 32px #ff6f0066;
+    z-index: 2;
+}
+.pet-image {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    user-select: none;
+    pointer-events: none;
+}
+.pet-content {
+    padding: 1rem 1.2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.pet-name {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.3rem;
+    color: #bf360c;
+    margin-bottom: 0.4rem;
+}
+.pet-desc {
+    font-size: 0.9rem;
+    color: #673221dd;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    flex-grow: 1;
+}
+.adopt-btn {
+    background: #ff6f00;
+    padding: 10px 0;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    font-weight: 600;
+    font-family: 'Fredoka One', cursive;
+    cursor: pointer;
+    box-shadow: 0 6px 12px #ff6f0044;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+.adopt-btn:hover {
+    background: #ffa040;
+    box-shadow: 0 8px 16px #ffa040aa;
+    transform: scale(1.05);
+}
+
+/* Gamify Points */
+#points-counter {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.8rem;
+    color: #ff6f00;
+    margin: 1rem auto 2rem auto;
+    text-align: center;
+    user-select: none;
+    max-width: 950px;
+    text-shadow: 1px 1px 3px #fff7ccbb;
+}
+
+/* Contact Section */
+section#contact {
+    background: #004d40cc;
+    color: white;
+    padding: 3rem 1.5rem 6rem 1.5rem;
+    text-align: center;
+    font-weight: 500;
+    position: relative;
+}
+section#contact h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 1.2rem;
+    color: #ffb300;
+    text-shadow: 1px 1px 5px #000b;
+}
+section#contact p {
+    max-width: 480px;
+    margin: 0 auto 1rem auto;
+    font-size: 1.1rem;
+}
+section#contact a.email-link {
+    color: #ffb300;
+    font-weight: 700;
+    text-decoration: none;
+    user-select: text;
+}
+section#contact a.email-link:hover {
+    text-decoration: underline;
+}
+
+/* Footer Section */
+footer {
+    background: #222;
+    color: #ccc;
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 1rem 1rem;
+    user-select: none;
+    border-top: 2px solid #ff6f00;
+    font-family: 'Poppins', sans-serif;
+}
+footer span.name {
+    color: #ff6f00;
+    font-weight: 600;
+}
+
+/* Hide hamburger button by default */
+#menuToggle {
+    display: none;
+}
+
+/* Mobile settings */
+@media (max-width: 768px) {
+    /* Style the hamburger button */
+    #menuToggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 2rem;
+        cursor: pointer;
+        color: #fff; /* Icon color */
+        margin-right: 1rem;
+    }
+    
+    /* Position nav container relatively for absolute positioning of menu */
+    nav .nav-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    /* Enhanced navigation menu styling */
+    #navMenu {
+        display: flex; /* Use flex for column layout */
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        background: rgba(0, 77, 64, 0.95); /* Semi-transparent background */
+        position: absolute;
+        top: 60px;  /* Adjust if your nav height changes */
+        left: 0;
+        transition: max-height 0.3s ease-out;
+        overflow: hidden;
+        max-height: 0;
+    }
+    
+    /* When active, reveal the navigation menu */
+    #navMenu.active {
+        max-height: 300px;  /* Increase if you have more menu items */
+    }
+    
+    /* Navigation list items styling */
+    #navMenu li {
+        margin: 0.8rem 0;
+        list-style: none;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    #navMenu li:last-child {
+        border-bottom: none;
+    }
+    
+    header.hero h1 {
+        font-size: 2.7rem;
+    }
+    nav .nav-container {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    nav ul li {
+        font-size: 1rem;
+    }
+    .btn-group {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    .btn {
+        padding: 15px 20px;
+        font-size: 1.05rem;
+    }
+    section#impact {
+        padding: 2.5rem 1rem;
+        margin: 0 0.5rem;
+    }
+    .impact-cards {
+        grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+        gap: 1rem;
+    }
+    section#volunteer {
+        padding: 2rem 1rem;
+    }
+    form.volunteer-form {
+        padding: 1.5rem 1.8rem;
+    }
+    section#adoption {
+        padding: 2rem 1rem;
+    }
+    .carousel-track {
+        padding-bottom: 0.5rem;
+    }
+}
